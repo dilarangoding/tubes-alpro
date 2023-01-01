@@ -4,19 +4,10 @@ using namespace std;
 
 string product[] ={"Album  Formula of Love", "Post Card Jihyo"};
 int harga[]   ={300000, 150000};
-int m;
 
-int main(){
-    cout << "               Daftar Produk              \n";
-    cout << "==========================================\n";
-    cout << "No" << "     " <<  "Nama Produk" << "     " << "Harga" << endl;
-    cout << "==========================================\n";
-    for (m=0; m<2; m++){
-        cout << m+1 << "     " << product[m] << "     " << harga[m] << endl;
-    }
-    cout << "==========================================\n";
-    return 0;
-    }
+
+
+
 
 
 // Koding Disini ya kawan kawan
@@ -25,15 +16,80 @@ int main(){
 
 // list_produk
 
+void list_produk(){
+    int m;
+    cout << "               Daftar Produk              \n";
+    cout << "==========================================\n";
+    cout << "No" << "     " <<  "Nama Produk" << "     " << "Harga" << endl;
+    cout << "==========================================\n";
+    for (m=0; m<2; m++){
+        cout << m+1 << "     " << product[m] << "     " << harga[m] << endl;
+    }
+    cout << "==========================================\n";
+ 
+ }
 
 // tambah produk
 
+void tambah_produk(){
+     string nama_barang[5], harga_barang [5];
+        int jml_barang;
+        cout << " " << endl;
+        cout << "Input Daftar Nama Barang dan Harganya : ";
+
+     cin >> jml_barang;
+     string nama,harga;
+     for ( int i = 0; i<jml_barang; i++) {
+
+     cout << " Nama Barang " << i + 1 << " : " ;
+     cin >> nama ;
+     cout << " Harga Barang " << " : " ;
+     cin >> harga;
+
+     nama_barang  [i] = nama;
+     harga_barang [i] = harga;
+
+ }
+}
+
+
 // diskon
 
-/*
+void diskon(){
+    cout << "Diskon" << endl;
+
+    int total_belanja, harga_akhir;
+
+    cout << "Total Belanja: Rp. ";
+    cin >> total_belanja;
+    cout << endl;
+
+    if ((total_belanja >= 100000) && (total_belanja < 500000)){
+        harga_akhir = total_belanja - (0.1*total_belanja);
+        cout << "Selamat, anda mendapatkan diskon 10%" << endl;
+    }
+
+    else if ((total_belanja >= 500000) && (total_belanja < 1000000)){
+        harga_akhir = total_belanja - (0.2*total_belanja);
+        cout << "Selamat, anda mendapatkan diskon 20%" << endl;
+    }
+
+     else if (total_belanja >= 1000000){
+        harga_akhir = total_belanja - (0.3*total_belanja);
+        cout << "Selamat, anda mendapatkan diskon 30%" << endl;
+    }
+
+    else {
+        harga_akhir = total_belanja;
+    }
+    cout << "Total bayar: Rp. " << harga_akhir << endl;
+    cout << harga_akhir;
+}
+
+
 int main(){
     int menu_dashboard;
-
+    tambah_produk();
     cout << "========== Dashboard ==========="<<endl;
     cout << "======= Twice Merchandise ======"<<endl;
     cout << "1. Produk"<<endl;
@@ -63,5 +119,6 @@ int main(){
         break;
     }
 
+
 }
-*/
+
