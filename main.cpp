@@ -6,13 +6,26 @@ string product[] ={"Album  Formula of Love", "Post Card Jihyo"};
 int harga[]   ={300000, 150000};
 
 
-
-
-
-
 // Koding Disini ya kawan kawan
 
 // pajak
+void pajak(){
+    float cost,count,total,total1,total2,tax;
+    cout << "\nHarga barang yang dibeli :";
+    cin  >> cost;
+    cout << "Jumlah barang yang dibeli :";
+    cin  >> count;
+    total1 = cost*count;
+    cout << "Total harga adalah :" <<total1<<endl;
+
+    tax = total*0.11;
+    total2 = total1 + tax;
+    cout << "\nPajak : "<<tax<<endl;
+    cout << "==========================="<<endl;
+    cout << "\nTotal pembayaran : " <<total2;
+}
+
+
 
 // list_produk
 
@@ -28,6 +41,8 @@ void list_produk(){
     cout << "==========================================\n";
  
  }
+
+
 
 // tambah produk
 
@@ -89,7 +104,7 @@ void diskon(){
 
 int main(){
     int menu_dashboard;
-    tambah_produk();
+    
     cout << "========== Dashboard ==========="<<endl;
     cout << "======= Twice Merchandise ======"<<endl;
     cout << "1. Produk"<<endl;
