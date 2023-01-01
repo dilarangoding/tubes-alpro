@@ -5,12 +5,29 @@ using namespace std;
 string product[] ={"Album  Formula of Love", "Post Card Jihyo"};
 int harga[]   ={300000, 150000};
 
+
+
+
+
+
 // Koding Disini ya kawan kawan
 
 // pajak
 
 // list_produk
 
+void list_produk(){
+    int m;
+    cout << "               Daftar Produk              \n";
+    cout << "==========================================\n";
+    cout << "No" << "     " <<  "Nama Produk" << "     " << "Harga" << endl;
+    cout << "==========================================\n";
+    for (m=0; m<2; m++){
+        cout << m+1 << "     " << product[m] << "     " << harga[m] << endl;
+    }
+    cout << "==========================================\n";
+ 
+ }
 
 // tambah produk
 
@@ -37,7 +54,6 @@ void tambah_produk(){
 
 
 // diskon
-
 
 void diskon(){
     cout << "Diskon" << endl;
@@ -71,8 +87,6 @@ void diskon(){
 }
 
 
-
-
 int main(){
     int menu_dashboard;
     tambah_produk();
@@ -104,7 +118,6 @@ int main(){
         cout << "Menu yang anda inputkan salah!"<<endl;
         break;
     }
-
 
 
 }
