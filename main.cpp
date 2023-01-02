@@ -23,6 +23,18 @@ void clrscr()
     system("cls");
 }
 
+// format rupiah 
+
+string rupiah(int angka, string potong = ".") {
+ string output = to_string(angka);
+ int inspost = output.length() - 3;
+ while (inspost > 0) {
+  output.insert(inspost, potong);
+  inspost -= 3;
+ }
+ return output;
+}
+
 // display_product
 
 void display_product(){
@@ -36,7 +48,7 @@ void display_product(){
               << left << setw(15) << code[i]
               << left << setw(30) << product[i]
               << left << setw(8)  << stock[i]
-              << left << setw(15) << price[i]
+              << left << setw(15) << rupiah(price[i])
               << endl;
     }
      cout << "======================================================================\n";
@@ -130,10 +142,10 @@ int search_product(string search, vector <string> code){
 // receipt
 
 void receipt(int subtotal){
-    float diskon = discount(subtotal);
-    float pajak = tax(subtotal - diskon);
-    float total = (subtotal - diskon ) +  pajak;
-    long bayar, kembali = total - bayar;
+    int diskon = discount(subtotal);
+    int pajak = tax(subtotal - diskon);
+    int total = (subtotal - diskon ) +  pajak;
+    int bayar;    
 
     cout << "\n\n=========================== Struk Belanja ============================"<<endl;
     cout << "========================== Twice Merchandise ========================="<<endl;
@@ -144,17 +156,18 @@ void receipt(int subtotal){
               << left << setw(15) << cart_code[i]
               << left << setw(30) << cart_product[i]
               << left << setw(8)  << cart_qty[i]
-              << left << setw(15) << cart_price[i]
+              << left << setw(15) << rupiah(cart_price[i])
               << endl;
     }
     cout << "----------------------------------------------------------------------\n";
-    cout << left << setw(45) << " " << left << setw(15) << "Sub Total : Rp." << subtotal <<endl;
-    cout << left << setw(45) << " " << left << setw(15) << "Diskon    : Rp." <<  diskon  <<endl;
-    cout << left << setw(45) << " " << left << setw(15) << "PPN 11%   : Rp." <<  pajak   <<endl;
-    cout << left << setw(45) << " " << left << setw(15) << "Total     : Rp." <<  total   <<endl;
+    cout << left << setw(45) << " " << left << setw(15) << "Sub Total : Rp." <<  rupiah(subtotal) <<endl;
+    cout << left << setw(45) << " " << left << setw(15) << "Diskon    : Rp." <<  rupiah(diskon)   <<endl;
+    cout << left << setw(45) << " " << left << setw(15) << "PPN 11%   : Rp." <<  rupiah(pajak)    <<endl;
+    cout << left << setw(45) << " " << left << setw(15) << "Total     : Rp." <<  rupiah(total)    <<endl;
     cout << left << setw(45) << " " << left << setw(15) << "Bayar     : Rp.";
     cin  >> bayar;
-    cout << left << setw(45) << " " << left << setw(15) << "Kembali   : Rp." << kembali  <<endl;
+    int kembali = (bayar - total);
+    cout << left << setw(45) << " " << left << setw(15) << "Kembali   : Rp." <<  rupiah(kembali)  <<endl;
 }
 
 // Transaction
